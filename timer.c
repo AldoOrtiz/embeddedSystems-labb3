@@ -2,6 +2,9 @@
 
 #include <avr/io.h>
 
+int timeMillis = 0;
+int prev = 0;
+
 void timer_init() {
     // ...
 }

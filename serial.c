@@ -31,12 +31,12 @@ char uart_getchar(void) {
     return UDR0;
 }
 
-void uart_putstr(char *str) {
-    unsigned char i = 0;
+// void uart_putstr(char *str) {
+//     unsigned char i = 0;
 
-    while (str[i] != 0)  // Send string till null
-    {
-        uart_putchar(str[i], NULL);
-        i++;
-    }
-}
+//     while (str[i] != 0)  // Send string till null
+//     {
+//         uart_putchar(str[i], NULL);
+//         i++;
+//     }
+// }

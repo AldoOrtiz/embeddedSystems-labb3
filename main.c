@@ -1,11 +1,14 @@
 #include <avr/interrupt.h>
 #include <avr/io.h>
 #include <avr/pgmspace.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "button.h"
 #include "led.h"
 #include "serial.h"
+#include "stdbool.h"
 #include "timer.h"
 
 int main() {
@@ -15,10 +18,14 @@ int main() {
 
     LED_init();
     uart_init();
-    // timer_init();
+    timer2();
+
     while (1) {
-        if (bit_is_set(PIND, PD2)) {
-            printf("test");
+        buttonDebounce();
+
+        if (bit_is_set(TIFR2, OCF2A)) {  // millis
+            timeMillis++;
+            TIFR2 = (1 << OCF2A);
         }
     }
 }
