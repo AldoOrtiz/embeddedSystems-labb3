@@ -4,7 +4,7 @@
 int timeMillis;
 int prev;
 
-void timer_init(void);
+void timer0(void);
 
 void timer2();
 
